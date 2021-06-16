@@ -1,0 +1,654 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    --bg:  #f0f2f5;
+    background-color: var(--bg);
+    --ok: #0065ff;
+    --ko: red;
+    word-break: break-word;
+}
+
+                        /* PAGE D'ACCUEIL */
+.accueil {
+    min-height: calc(100vh - 120px);
+    
+}
+
+/* HEADER */
+header {
+    height: 60px;
+}
+
+.accueil {
+    display: flex;
+
+}
+.titre-accueil {
+    background-color: rgb(48, 47, 47);
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    height: 60px;
+}
+.visible {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.connexion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+}
+
+.connexion h2 {
+    color: var(--ok);
+    font-size: 2.1em;
+    margin: 10px;
+}
+
+.container-connexion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.container-connexion input {
+    width: 86%;
+    padding: 5px 0;
+    margin: 5px 7%;
+    font-size: 1.2em;
+    color: rgb(121, 121, 121);
+}
+input::placeholder {
+    text-align: center;
+}
+
+.container-connexion button  {
+    width: 86%;
+    padding: 5px 0;
+    margin: 0  7% 10px 7%;
+    background-color: var(--ok);
+    color: white;
+    border: none;
+    margin-top: 7px;
+    cursor: pointer;
+    font-size: 1.2em;
+} 
+
+.container-connexion button:disabled{
+    background-color: var(--ko);
+    cursor: inherit;
+    
+}
+
+.message-erreur {
+    color: var(--ko);
+    margin-top: -5px;
+}
+
+.erreur_password {
+    font-size: 1.1em;
+    padding: 0 10px;
+}
+
+/* IMAGE */
+.image {
+    display: flex;
+    justify-content: flex-start;
+    width: 45%;
+}
+.image img{
+    height: 70vh;
+    width: auto;
+}
+
+ /* INDICATION FORMAT MOT DE PASSE */
+ .valid{
+    color: var(--ok);
+}
+
+.invalid{
+    color: var(--ko);
+}
+
+.cacher{
+    display: none;
+}
+
+.vue{
+    display: initial;
+    color: var(--ok);
+}
+
+.barre {
+    width: 80%;
+    height: 3px;
+    background-color: white;
+    margin: 20px 0;
+}
+
+.lien-inscription {
+    width: 100%;
+}
+
+.lien-inscription button{
+    width: 80%;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+    /* FENETRE MODALE ACCUEIL*/
+.accueil .modal{
+    background-color: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.accueil .modal.show{
+    visibility: visible;
+    opacity: 1;
+}
+
+.accueil .modal-content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 600px;
+    text-align: center;
+}
+
+.accueil .modal-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: rgb(131, 131, 131);
+    background-color: white;
+    padding: 2px 5px;   
+}
+
+.accueil .modal-content h2 {
+    font-size: 2.1em;
+    color: var(--ok);
+    margin: 10px;
+}
+
+.accueil .modal-content input {
+    width: 360px;
+    margin: 10px 0;
+    padding: 5px 0;
+    font-size: 1.2em;
+    color: rgb(121, 121, 121);
+}
+
+.accueil .modal-content button  {
+    width: 360px;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    background-color: var(--ok);
+    color: white;
+    border: none;
+    margin-top: 7px;
+    cursor: pointer;
+    font-size: 1.2em;
+} 
+
+.accueil .modal-content button:disabled{
+    background-color: var(--ko);
+    cursor: inherit;   
+}
+
+.accueil .message-erreur {
+    color: var(--ko);
+    margin-top: -5px;
+    font-size: 1.5em;
+}
+
+.accueil .erreur_password {
+    width: 360px;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+                                     /* TODOLIST */ 
+.header-todo {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+}
+
+.header-todo div {
+    font-size: 1.3em;
+    margin-left: 5%;
+    line-height: 60px;
+}
+
+.header-todo a {
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    margin-right: 5%;
+    background-color: red;
+    border: 1px solid red;
+    line-height: 58px;
+    padding: 0 5px;
+    transition: all 0.5s;
+}
+
+.header-todo a:hover {
+    color: red;
+    background-color: white;
+    
+}
+.todo {
+    min-height: calc(100vh - 120px);
+    
+}
+
+.todo .entete {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.todo .entete h1 {
+    font-size: 1.9em;
+    margin-bottom: 12px;
+}
+
+.todo .entete button {
+    font-size: 1em;
+    border: 1px solid var(--ok);
+    background-color: var(--ok);
+    color: white;
+    padding: 5px 8px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.todo .entete button:hover {
+    color: var(--ok);
+    background: white;
+    border: 1px solid var(--ok);
+}
+
+#session {
+    display: none;
+}
+
+.listes {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.liste, .liste-finie { 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 350px;
+    background-color: var(--bg);
+    border-radius: 6px;
+    margin: 15px;
+    text-align: center;
+    box-shadow: 0 0 10px #c3c5ca;
+}
+
+.sup-liste {
+    position: absolute;
+    top: 14px;
+    left: 23px;
+    font-size: 0.8em;
+    background-color: red;
+    color: white;
+    border-radius: 100%;
+    padding: 5px 8px;
+    border: 2px solid red;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.sup-liste:hover {
+    background-color: black;
+    border: 2px solid black;
+}
+
+.liste .description-liste h3,  .liste-finie .description-liste h3{
+    font-size: 1.5em;
+    margin-bottom: 4px;
+}
+
+.tache, .tache-fini {
+    background-color: white;
+    width: 320px;
+    border-radius: 6px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.tache-fini {
+    cursor: initial;
+}
+
+.tache .hidden {
+    display: none;
+}
+
+.tache:hover {
+    background-color: rgb(221, 221, 221); 
+}
+
+.tache h4, .tache-fini h4 {
+    font-size: 1.3em;
+    padding: 5px;
+}
+
+.tache .container, .tache-fini .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 15px 5px 15px;
+}
+
+.fa-calendar-day, .fa-calendar-check {
+    color: var(--ok);
+    margin-right: 3px;
+}
+
+.ajouter input {
+    width: 320px;
+    border-radius: 6px;
+    height: 30px;
+    padding: 0 15px;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.ajouter button {
+    width: 320px;
+    border-radius: 6px;
+    height: 28px;
+    padding: 0 15px;
+    font-size: 1em;
+    margin-bottom: 10px;
+    background-color: var(--ok);
+    border: 1px solid var(--ok);
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.ajouter button:hover {
+    color: var(--ok);
+    background-color: white;
+    border: 1px solid var(--ok);
+}
+
+.listes .ajouter-liste { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 350px;
+    background-color: var(--bg);
+    border-radius: 6px;
+    margin: 15px;
+    text-align: center;
+    box-shadow: 0 0 10px #c3c5ca;  
+}
+
+.listes .ajouter-liste h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.ajouter-liste input {
+    width: 320px;
+    border-radius: 6px;
+    height: 30px;
+    padding: 0 15px;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.ajouter-liste button {
+    width: 320px;
+    border-radius: 6px;
+    height: 28px;
+    padding: 0 15px;
+    font-size: 1em;
+    margin-bottom: 10px;
+    background-color: var(--ok);
+    border: none;
+    color: white;
+    border: 1px solid var(--ok);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.ajouter-liste button:hover {
+    color: var(--ok);
+    background-color: white;
+    border: 1px solid var(--ok);
+}
+
+
+
+                /* FENETRE MODALE TODOLIST*/
+ .todo .modal{
+    background-color: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.todo .modal.show{
+    visibility: visible;
+    opacity: 1;
+}
+
+.todo .hidden {
+    display: none;
+}
+
+.todo .modal-content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+    width: 600px;
+    text-align: center;
+}
+
+.todo .modal-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: rgb(131, 131, 131);
+    background-color: white;
+    padding: 2px 5px;   
+}
+
+.todo .modal-content h5 {
+    
+    font-size: 1.5em;
+    margin: 6px 0 0 8px;
+}
+
+.todo .modal-content .nom-liste {
+    margin: 0 0 0 36px;
+}
+
+.todo .fa-clipboard {
+    margin-right: 7px;
+}
+
+.todo .modal-description {
+    margin: 40px 0 0 8px;
+}
+
+.todo .modal-description .fa-align-left {
+    margin-right: 5px;
+}
+
+.todo .modal-description p {
+    font-size: 1.3em;
+}
+
+.todo .modal-description p a {
+    background-color: lightgray;
+    padding: 2px 3px;
+    margin-left: 9px;
+    font-size: 1em!important;
+    cursor: pointer;
+}
+
+.todo .modal-description-text {
+    width: calc(100% - 55px);
+    margin: 6px 20px 15px 35px;
+    padding: 5px 18px;
+    text-align: start;
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);  
+    transition: all 0.5s;
+}
+
+.todo .description-modal {
+    width: 100%;
+}
+
+.todo .input-description {
+    width: 100%;
+}
+
+.todo .button-description {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.todo .button-modale {
+    background-color: rgb(31, 182, 69);
+    margin: 0 20px 15px 35px;
+    padding: 5px 8px;
+    border: 1px solid rgb(31, 182, 69);
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.todo .button-modale:hover {
+    background-color: white;
+    color: rgb(31, 182, 69);
+    border: 1px solid rgb(31, 182, 69);
+}
+
+.todo .input-modale{
+    width: calc(100% - 55px);
+    margin: 6px 20px 0 35px;
+    padding: 5px 18px;
+    text-align: start;
+    cursor: text;
+    background-color: rgb(240, 240, 240);  
+}
+
+.todo  .modal-description-text:hover {
+    background-color: rgb(228, 228, 228);  
+}
+
+.todo .modal-description-text .hidden {
+    display: none;
+}
+
+.todo  .modal-description-text .show {
+    display: block;  
+}
+
+.todo .boutons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.todo .tache-finie {
+    background-color: var(--ok);
+    color: white;
+    padding: 5px 8px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer; 
+    transition: all 0.5s;
+}
+
+.todo .tache-finie:hover {
+    background-color: white;
+    color: var(--ok);
+}
+
+.todo .tache-annule {
+    background-color: red;
+    color: white;
+    padding: 5px 8px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.todo .tache-annule:hover {
+    background-color: white;
+    color: red;
+}
+
+                                /* FOOTER */
+footer {
+    font-size: 1.05em;
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    height: 60px;
+}
